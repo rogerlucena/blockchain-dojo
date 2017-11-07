@@ -28,7 +28,11 @@ router.get('/chain', (req, res) => {
 });
 
 router.post('/mine', (req, res) => {
-    // TODO post mineblock
+    const block = create(req.body.data);
+    chain.update(block);
+    broadcast(responseLatestMsg());
+    console.log('New block in chain has been added: ', block);
+    res.send(block);
 });
 
 
