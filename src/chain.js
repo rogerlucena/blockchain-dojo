@@ -27,7 +27,7 @@ const Chain = (function () { // eslint-disable-line func-names
     }
 
     function update(block) {
-        // TODO update chain
+        chain.push(block)
     }
 
     function last() {
