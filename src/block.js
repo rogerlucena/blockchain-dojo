@@ -8,7 +8,7 @@ export const create = (data) => {
     const block = { 
         index: 0,
         timestamp: 0,
-        data: 'Hello Blockchain!',
+        data: data,
         prevHash: 0,
         hash: 0
     }
