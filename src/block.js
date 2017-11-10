@@ -2,13 +2,14 @@ import CryptoJS from 'crypto-js';
 
 import chain from './chain';
 
-export const calcHash = ({index, prevHash, timestamp, data}) => 0;
+export const calcHash = ({index, prevHash, timestamp, data}) => CryptoJS.SHA256(index + prevHash + timestamp + data).toString();
 
 export const create = (data) => {
     const prev = chain.last();
     const index = prev.index + 1;
     const timestamp = new Date().getTime();
     const prevHash = prev.hash;
+    const hash = calcHash({index, prevHash, timestamp, data})
     const block = { 
         index,
         timestamp,
