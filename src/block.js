@@ -15,7 +15,7 @@ export const create = (data) => {
         timestamp,
         data: data,
         prevHash,
-        hash: calcHash()
+        hash
     }
     // TODO Create block
     return block
@@ -23,6 +23,15 @@ export const create = (data) => {
 
 export const isNewBlockValid = (newBlock, prevBlock = chain.last()) => {
     let isValid = true;
-// TODO compute isValid
+    if (prevBlock.index + 1 !== newBlock.index) {
+        console.log('New block has invalid index');
+        isValid = false;
+    } else if (prevBlock.hash !== newBlock.prevHash) {
+        console.log('New block has invalid prevHash');
+        isValid = false;
+    } else if (calcHash(newBlock) !== newBlock.hash) {
+        console.log('New block has invalid hash');
+        isValid = false;
+    }
     return isValid;
 };

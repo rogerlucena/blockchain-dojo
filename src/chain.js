@@ -18,7 +18,21 @@ const Chain = (function () { // eslint-disable-line func-names
 
     function isChainValid(newChain) {
         let isValid = true;
-        // TODO compute isValid
+        if (JSON.stringify(newChain[0]) !== JSON.stringify(origin)) {
+            console.log('Received chain is invalid. Origin block does not coincide');
+            isValid = false;
+            return isValid;
+        }
+
+        const tempChain = [newChain[0]];
+        for (let i = 1; i < newChain.length; i += 1) {
+            if ((0, _block.isNewBlockValid)(newChain[i], tempChain[i - 1])) {
+                tempChain.push(newChain[i]);
+            } else {
+                isValid = false;
+                return isValid;
+            }
+        }
         return isValid;
     }
 
