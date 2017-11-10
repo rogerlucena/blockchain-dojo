@@ -5,12 +5,16 @@ import chain from './chain';
 export const calcHash = ({index, prevHash, timestamp, data}) => 0;
 
 export const create = (data) => {
+    const prev = chain.last();
+    const index = prev.index + 1;
+    const timestamp = new Date().getTime();
+    const prevHash = prev.hash;
     const block = { 
-        index: 0,
-        timestamp: 0,
+        index,
+        timestamp,
         data: data,
-        prevHash: 0,
-        hash: 0
+        prevHash,
+        hash: calcHash()
     }
     // TODO Create block
     return block
