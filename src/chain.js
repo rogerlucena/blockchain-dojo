@@ -7,12 +7,7 @@ const Chain = (function () { // eslint-disable-line func-names
         timestamp: 0,
         data: 'Hello Blockchain!',
         prevHash: 0,
-        hash: calcHash({
-            index: 0,
-            prevHash: 0,
-            timestamp: 0,
-            data: 'Hello Blockchain!'
-        })
+        hash: 0,
     };
     const chain = [origin];
 
