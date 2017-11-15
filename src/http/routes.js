@@ -28,11 +28,23 @@ router.get('/chain', (req, res) => {
 });
 
 router.post('/mine', (req, res) => {
-    const block = create(req.body.data);
-    chain.update(block);
-    broadcast(responseLatestMsg());
-    console.log('New block in chain has been added: ', block);
-    res.send(block);
+    const block = create(req.body.data)
+    .then((block) => {
+        console.log('block')
+        console.log('block')
+        console.log('block')
+        console.log('block')
+        console.log(block)
+        if (block) {
+            chain.update(block);
+            broadcast(responseLatestMsg());
+            console.log('New block in chain has been added: ', block);
+            res.send(block);
+        } else {
+            console.log('Invalid block, dumped', block);
+            res.send('wrong block');            
+        }
+    });
 });
 
 

@@ -1,4 +1,4 @@
-import { calcHash, isNewBlockValid } from './block';
+import { isNewBlockValid } from './block';
 
 const Chain = (function () { // eslint-disable-line func-names
     let instance;
@@ -9,7 +9,7 @@ const Chain = (function () { // eslint-disable-line func-names
         prevHash: 0,
         hash: 0,
     };
-    const chain = [origin];
+    let chain = [origin];
 
     function isChainValid(newChain) {
         let isValid = true;
@@ -44,7 +44,7 @@ const Chain = (function () { // eslint-disable-line func-names
     }
 
     function replace(newChain) {
-        // TODO replace new chain
+        chain = newChain;
     }
 
     function create() {
