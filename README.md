@@ -1,17 +1,14 @@
-Chainpro
+Blockchain Dojo
 ========
-Easy Blockchain implementation for JavaScript apps.
   
 ### Installation
 
-To install the stable version:
-
+To install the project:
 ```
-npm install --save chainpro
+npm install 
 ```
 
 This assumes you are using [npm](https://www.npmjs.com/) as your package manager.  
-If you don't, you can [access these files on unpkg](https://unpkg.com/chainpro/), download them, or point your package manager to them.
 
 ### Quick Start
 
@@ -31,14 +28,10 @@ HTTP_PORT=3002 P2P_PORT=6002 P2P_PEERS=ws://localhost:6001 npm run dev
 
 ### Architecture
 
-![Architecture](Chainpro.png)
-
-To get more details check the post on [Medium](https://medium.com/@stremann/blockchain-in-100-lines-of-code-50186a9a230).
-
-### Change Log
-
-This project adheres to [Semantic Versioning](http://semver.org/).
-Every release is documented on the GitHub [Releases](https://github.com/stremann/chainpro/releases) page.
+3 files will be usefull for this Dojo.
+- `block.js`: Logic of the blocks 
+- `chain.js`: Logic of the chain
+- `src/http/routes.js`: Logic of the server routes
 
 ### License
 
