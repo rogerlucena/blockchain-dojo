@@ -1,3 +1,6 @@
+// My Trello link: https://trello.com/b/sdBwhflI/blockchain-dojo
+// Theodo's original Trello link: https://trello.com/b/s2zFZmY5/blockchain-dojo
+
 import CryptoJS from 'crypto-js';
 
 import chain from './chain';
